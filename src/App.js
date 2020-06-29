@@ -1,5 +1,5 @@
 import React,{Fragment, Component} from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import NavBar from "./Components/NavBar";
 import Post from "./Components/Post";
@@ -40,14 +40,14 @@ class App extends Component{
 
 
     like = id =>{
-        const data = {... this.state.data};
+        const data = {...this.state.data};
         data[id].numberOfLike += 1;
         // console.log("esaye");
         this.setState({data});
     };
 
     addComment = (id)=>{
-        const data = {... this.state.data};
+        const data = {...this.state.data};
         if(this.state.nameBuffer === ''){
             alert('Please enter your name for comment this post')
         }else if (this.state.commentBuffer === ''){
@@ -55,7 +55,8 @@ class App extends Component{
         }else{
             data[id].nameComments.push(this.state.nameBuffer);
             data[id].comments.push(this.state.commentBuffer);
-            this.setState({data});
+
+            this.setState({data , nameBuffer :'' ,commentBuffer:''});
         }
     };
 
@@ -70,7 +71,7 @@ class App extends Component{
 
     handleChangeImg = (event)=>{
         const imgUrl = event.target.value;
-        this.setState({img : imgUrl});
+        this.setState({imgBuffer : imgUrl});
     };
 
     toogleModal = ()=>{
@@ -81,11 +82,11 @@ class App extends Component{
     addPost = (event)=>{
         event.preventDefault();
 
-        let data = {... this.state.data};
+        let data = {...this.state.data};
         i+=1;
         let a = "post"+(i).toString();
         console.log(a);
-        data [a] = {
+        data[a] = {
             name : this.state.nameBuffer,
             numberOfLike : 0,
             img : this.state.imgBuffer,
@@ -93,7 +94,7 @@ class App extends Component{
             nameComments : ["me"]
         };
 
-        this.setState({data, isShow:false} );
+        this.setState({data, isShow:false , nameBuffer:'', imgBuffer:'',commentBuffer:''} );
     };
 
 

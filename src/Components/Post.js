@@ -14,7 +14,7 @@ const Post = ({name, img , comments, nameComments , addLike,numberOfLike , nameC
         />
     );
 
-
+    //
     return (
         <div className="post-container">
             <div className="post">
