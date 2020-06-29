@@ -1,0 +1,14 @@
+.comment-unit{
+    /*border:1px solid black;*/
+    padding: 5px;
+    display: flex;
+}
+.comment-unit p{
+    margin: 0;
+}
+
+.name-comment{
+    font-weight: bold;
+    color: #ff5886;
+    padding-right: 5px;
+}

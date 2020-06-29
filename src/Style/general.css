@@ -1,0 +1,27 @@
+.add-post-btn{
+    color: white;
+    background-color: dodgerblue;
+    border-radius: 62%;
+    width: 60px;
+    top: 88%;
+    right: 3%;
+    font-weight: bold;
+    height: 60px;
+    font-size: 50px;
+    text-align: center;
+    position: fixed;
+    font-family: monospace;
+}
+.add-post-btn:hover{
+    background-color: orange;
+}
+
+.footer{
+    background-color: #282c34;
+    text-align: center;
+    padding: 20px;
+}
+.footer a{
+    color: orange;
+
+}
