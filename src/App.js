@@ -49,9 +49,11 @@ class App extends Component{
     addComment = (id)=>{
         const data = {...this.state.data};
         if(this.state.nameBuffer === ''){
-            alert('Please enter your name for comment this post')
+            alert('Please enter your name for comment this post');
+            return;
         }else if (this.state.commentBuffer === ''){
-            alert("please enter a comment")
+             alert("please enter a comment");
+             return;
         }else{
             data[id].nameComments.push(this.state.nameBuffer);
             data[id].comments.push(this.state.commentBuffer);
@@ -81,27 +83,28 @@ class App extends Component{
 
     addPost = (event)=>{
         event.preventDefault();
+        if (document.getElementById('name').value.length != 0 && document.getElementById('url').value.length != 0 ) {
+            let data = {...this.state.data};
+            i += 1;
+            let a = "post" + (i).toString();
+            data[a] = {
+                name: this.state.nameBuffer,
+                numberOfLike: 0,
+                img: this.state.imgBuffer,
+                comments: [this.state.commentBuffer],
+                nameComments: ["me"]
+            };
 
-        let data = {...this.state.data};
-        i+=1;
-        let a = "post"+(i).toString();
-        console.log(a);
-        data[a] = {
-            name : this.state.nameBuffer,
-            numberOfLike : 0,
-            img : this.state.imgBuffer,
-            comments:[this.state.commentBuffer],
-            nameComments : ["me"]
-        };
-
-        this.setState({data, isShow:false , nameBuffer:'', imgBuffer:'',commentBuffer:''} );
+            this.setState({data, isShow: false, nameBuffer: '', imgBuffer: '', commentBuffer: ''});
+        }else{
+            alert("please enter name and url ");
+            return;
+        }
     };
 
 
     render() {
         const {numberOfLike , data , isShow} = this.state;
-
-
 
         const listOfPost = Object.keys(data).map(id =>
             <Post

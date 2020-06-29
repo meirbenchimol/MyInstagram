@@ -11,7 +11,7 @@ const AddPostModal = ({show, nameChange , legendChange , imgChange , send}) => {
                     <label  >Name: </label>
                     <input className='input-post' onChange={nameChange} id='name' type="text"  required/>
                     <label >Image Url: </label>
-                    <input className='input-post' onChange={imgChange} name='url' type="text" required/>
+                    <input className='input-post' onChange={imgChange} id='url' type="text" required/>
                     <label >Legend: </label>
                     <input className='input-post'  onChange={legendChange} name='legend' type="text" />
                     <input className='send' value='Send' onClick={send} type='submit'/>
